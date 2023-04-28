@@ -1,14 +1,19 @@
 import { Fast_and_Furious_alert } from "./Fast_and_Furious_alert.js";
 const ul = document.querySelector("ul");
 const ul_children = ul.childNodes;
-let index = ul_children.length ? ul_children : 0;
+const body = document.querySelector("body");
 
 for (const childs of ul_children) {
+  body.addEventListener("keyup", (event) => {
+    if (event.keyCode === 82) {
+      ul_children.sort((a, b) => 0.5 - Math.random());
+      console.log("r");
+    }
+  });
   if (childs.ELEMENT_NODE === 1) {
     if (childs.innerHTML === "Fast and Furious") {
       ul.prepend(childs);
       childs.classList.add("important");
-      console.log(childs.childNodes);
       if (childs.className == "important") {
         childs.addEventListener("click", Fast_and_Furious_alert);
       }
