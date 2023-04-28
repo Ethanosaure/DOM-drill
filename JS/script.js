@@ -13,12 +13,19 @@ for (const childs of ul_children) {
         childs.addEventListener("click", Fast_and_Furious_alert);
       }
     } else {
+      for (const kid of ul_children) {
+        if (
+          kid.nodeType === Node.ELEMENT_NODE &&
+          kid !== childs &&
+          kid.isEqualNode(childs)
+        ) {
+          ul.removeChild(kid);
+        }
+      }
+
       childs.addEventListener("click", () => {
         alert(childs.innerHTML);
       });
-      if (.isEqualNode(childs)) {
-        ul.removeChild();
-      }
     }
   }
 }
